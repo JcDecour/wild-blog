@@ -18,7 +18,8 @@
             <!-- Display textarea for editing post.content only if editable and in edit mode -->
             <textarea class="materialize-textarea" ng-if="($ctrl.editable && $ctrl.editMode)" ng-model="$ctrl.post.content" placeholder="Content"></textarea>
             <input type="text" class="validate" ng-if="($ctrl.editable && $ctrl.editMode)" placeholder="date" ng-model="$ctrl.post.date">
-            <<span>jj-mm-aaaa</span>
+            <span ng-if="($ctrl.editable && $ctrl.editMode)">Veuillez respecter le format: jj-mm-aaaa</span>
+            <span ng-if="(!$ctrl.editable || ($ctrl.editable && !$ctrl.editMode))">publié le {{$ctrl.post.createdAt}}</span>
         </div>
 
         <div class="card-action">

@@ -9,8 +9,6 @@ let navbar = {
         time = () => {
                 this.currentTime = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
             },
-
-        console.log(this.currentTime);
         $interval(time, 1000);
 
         angular.extend(this, {
