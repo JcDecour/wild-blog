@@ -15,6 +15,27 @@ class PostsController extends Controller {
         super(Post)
     }
 
+    findVisibleArticle(req, res, next) {
+        this.model.find({
+            published: true
+        }, (err, documents) => {
+            res.json(documents);
+        });
+    }
+
+    findVisibleById(req, res, next) {
+        // Get a unique document by request param, this param need to be id
+        this.model.findById(req.params.id, (err, document) => {
+            if (err)
+                next(err)
+            else {
+                if (document.published)
+                    res.json(document)
+
+            } 
+        })
+    }
+
 }
 
 module.exports = PostsController
