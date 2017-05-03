@@ -1,7 +1,18 @@
+var moment = require('moment');
 let navbar = {
     templateUrl: 'js/components/common/navbar.html',
-    controller: ['UsersService', '$state', function(UsersService, $state) {
+    controller: ['UsersService', '$state', '$interval', function(UsersService, $state, $interval) {
         'use strict'
+        
+        let time = "";
+
+        time = () => {
+                this.currentTime = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+            },
+
+        console.log(this.currentTime);
+        $interval(time, 1000);
+
         angular.extend(this, {
             $onInit() {
                 UsersService.getCurrent().then((user) => {
@@ -16,7 +27,9 @@ let navbar = {
                     this.user = null
                     $state.reload()
                 })
-            }
+            },
+
+            
 
         })
     }]
