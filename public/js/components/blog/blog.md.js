@@ -31,6 +31,7 @@ let blogModule = angular.module('app.blog', [])
                 url: '/:id',
                 template: '<blog-item editable="true"></blog-item>'
             })
+
     }])
     .name
 
