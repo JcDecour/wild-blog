@@ -9,15 +9,12 @@ module.exports = mongoose.model('Post', new mongoose.Schema({
     title: {
         type: String
     },
+    publishedAt: {
+    	type: String
+    },
     content: {
         type: String
     },
-    createdAt: {
-    	type: String
-    },
-    editedAt: {
-    	type: String
-    }
-// }, {
-//     timestamps: true
+ }, {
+    timestamps: true
 }))

@@ -61,8 +61,6 @@ let blogItem = {
             // Call save method form PostsService with post
             PostsService.save(this.post).then((res) => {
                 // Change editMode value to false
-                this.post.date = this.post.date.format('DD-MM-AAA'),
-                console.log(this.post.date);
                 this.editMode = false
                 if (!this.post._id) {
                     // if it's new post (when post._id doesn't exist) we affect to post variable response data (post created)
